@@ -21,42 +21,64 @@ function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     let winMsg = `You win! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}.`;
     let loseMsg = `You lost! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}.`;
+    let tieMsg = `It's a tie! You both played ${playerSelection}.`;
 
     function winRound() {
         playerScore++;
-        console.log(winMsg);
+        // console.log(winMsg);
         return winMsg;
     }
     function loseRound() {
         computerScore++;
-        console.log(loseMsg);
+        // console.log(loseMsg);
         return loseMsg;
     }
 
     if (playerSelection === computerSelection) {
-        return `It's a tie! You both played ${playerSelection}.`;
+        // console.log(tieMsg);
+        return tieMsg;
     } 
 
     if (playerSelection === `rock`) {
         if (computerSelection === `paper`) {
-            loseRound();
+            return loseRound();
         } else {
-            winRound();
+            return winRound();
         }
     }
     if (playerSelection === `paper`) {
         if (computerSelection === `rock`) {
-            winRound();
+            return winRound();
         } else {
-            loseRound();
+            return loseRound();
         }
     }
     if (playerSelection === `scissors`) {
         if (computerSelection === `rock`) {
-            loseRound();
+            return loseRound();
         } else {
-            winRound();
+            return winRound();
         }
     }
 }
 
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+}
+
+function game() {
+    resetGame();
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Type rock, paper, or scissors:");
+        console.log(playRound(playerSelection, getComputerChoice()));
+    }
+
+    if (playerScore === computerScore) {
+        console.log(`You both tied! No one won...`);
+    } else if (playerScore > computerScore) {
+        console.log(`You won the battle!`);
+    } else {
+        console.log(`Better luck next time...`);
+    }
+}
