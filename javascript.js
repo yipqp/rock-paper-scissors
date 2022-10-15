@@ -18,7 +18,6 @@ function capitalizeFirstLetter(string) {
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
     let winMsg = `You win! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}.`;
     let loseMsg = `You lost! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}.`;
     let tieMsg = `It's a tie! You both played ${playerSelection}.`;
@@ -70,7 +69,10 @@ function resetGame() {
 function game() {
     resetGame();
     for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Type rock, paper, or scissors:");
+        let playerSelection = prompt("Type rock, paper, or scissors:", "").toLowerCase();
+        while (playerSelection === "") {
+            playerSelection = prompt("Type a valid answer!");
+        }
         console.log(playRound(playerSelection, getComputerChoice()));
     }
 
