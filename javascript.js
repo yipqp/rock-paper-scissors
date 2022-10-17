@@ -30,9 +30,7 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === computerSelection) {
         resultDiv.textContent = tieMsg;
-    } 
-
-    if ((playerSelection === "rock" && computerSelection === "paper")
+    } else if ((playerSelection === "rock" && computerSelection === "paper")
         || (playerSelection === "paper" && computerSelection === "scissors")
         || (playerSelection === "scissors" && computerSelection === "rock")) 
         {
@@ -47,8 +45,8 @@ function playRound(playerSelection, computerSelection) {
             endGame();
         }
 
-    playerScoreDiv.textContent = playerScore;
-    computerScoreDiv.textContent = computerScore;
+    playerScoreDiv.textContent = `Your score: ${playerScore}`;
+    computerScoreDiv.textContent = `Computer score: ${computerScore}`;
 }
 
 function endGame() {
