@@ -1,7 +1,6 @@
 let playerScore = 0;
 let computerScore = 0;
 
-
 function getComputerChoice() {
     const randomNum = Math.floor((Math.random()*3)+1);
     if (randomNum === 1) {
@@ -18,31 +17,55 @@ function capitalizeFirstLetter(string) {
 }
 
 function playRound(playerSelection, computerSelection) {
+    playerSelection = this.id;
+    computerSelection = getComputerChoice();
+
+    const resultDiv = document.querySelector(".result");
+    const playerScoreDiv = document.querySelector(".player-score");
+    const computerScoreDiv = document.querySelector(".computer-score");
+
     let winMsg = `You win! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}.`;
     let loseMsg = `You lost! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}.`;
     let tieMsg = `It's a tie! You both played ${playerSelection}.`;
 
-    function winRound() {
-        playerScore++;
-        return winMsg;
-    }
-    function loseRound() {
-        computerScore++;
-        return loseMsg;
-    }
-
     if (playerSelection === computerSelection) {
-        return tieMsg;
+        resultDiv.textContent = tieMsg;
     } 
 
     if ((playerSelection === "rock" && computerSelection === "paper")
         || (playerSelection === "paper" && computerSelection === "scissors")
         || (playerSelection === "scissors" && computerSelection === "rock")) 
         {
-            return loseRound();
+            computerScore++;
+            resultDiv.textContent = loseMsg;
         } else {
-            return winRound();
+            playerScore++;
+            resultDiv.textContent = winMsg;
         }
+
+    if (playerScore === 5 || computerScore === 5) {
+            endGame();
+        }
+
+    playerScoreDiv.textContent = playerScore;
+    computerScoreDiv.textContent = computerScore;
+}
+
+function endGame() {
+    const gameEndMessage = document.querySelector(".game-end-message");
+    let gameResult = "";
+
+    buttons.forEach(button => {
+        button.removeEventListener("click", playRound);  
+    });
+
+    if (playerScore > computerScore) {
+        gameResult = ("You won the battle!");
+    } else {
+        gameResult = ("Better luck next time...");
+    }
+
+    gameEndMessage.textContent = gameResult;
 }
 
 function resetGame() {
@@ -50,21 +73,7 @@ function resetGame() {
     computerScore = 0;
 }
 
-function game() {
-    resetGame();
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Type rock, paper, or scissors:", "").toLowerCase();
-        while (playerSelection === "") {
-            playerSelection = prompt("Type a valid answer!");
-        }
-        console.log(playRound(playerSelection, getComputerChoice()));
-    }
-
-    if (playerScore === computerScore) {
-        console.log(`You both tied! No one won...`);
-    } else if (playerScore > computerScore) {
-        console.log(`You won the battle!`);
-    } else {
-        console.log(`Better luck next time...`);
-    }
-}
+const buttons = document.querySelectorAll("button");
+buttons.forEach(button => {
+    button.addEventListener("click", playRound);  
+});
