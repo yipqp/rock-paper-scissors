@@ -24,41 +24,25 @@ function playRound(playerSelection, computerSelection) {
 
     function winRound() {
         playerScore++;
-        // console.log(winMsg);
         return winMsg;
     }
     function loseRound() {
         computerScore++;
-        // console.log(loseMsg);
         return loseMsg;
     }
 
     if (playerSelection === computerSelection) {
-        // console.log(tieMsg);
         return tieMsg;
     } 
 
-    if (playerSelection === `rock`) {
-        if (computerSelection === `paper`) {
+    if ((playerSelection === "rock" && computerSelection === "paper")
+        || (playerSelection === "paper" && computerSelection === "scissors")
+        || (playerSelection === "scissors" && computerSelection === "rock")) 
+        {
             return loseRound();
         } else {
             return winRound();
         }
-    }
-    if (playerSelection === `paper`) {
-        if (computerSelection === `rock`) {
-            return winRound();
-        } else {
-            return loseRound();
-        }
-    }
-    if (playerSelection === `scissors`) {
-        if (computerSelection === `rock`) {
-            return loseRound();
-        } else {
-            return winRound();
-        }
-    }
 }
 
 function resetGame() {
