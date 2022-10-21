@@ -50,7 +50,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function endGame() {
-    const gameEndMessage = document.querySelector(".game-end-message");
+    const gameEndMessage = document.querySelector(".game-end");
     let gameResult = "";
 
     buttons.forEach(button => {

@@ -5,19 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="javascript.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
-
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
-    <div class="result"></div>
-    <div class="scoreContainer">
-        <div class="player-score"></div>
-        <div class="computer-score"></div>
+    <div class="title-container container">
+        <h1 class="title">Rock Paper Scissors</h1>
     </div>
-    <div class="game-end-message"></div>
+
+    <div class="button-container container">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
+
+    <div class="message-container container">
+        <div class="result-container container">
+            <div class="result message"></div>
+        </div>
+        <div class="score-container container">
+            <div class="player-score message"></div>
+            <div class="computer-score message"></div>
+        </div>
+        <div class="game-end message"></div>
+    </div>
+    
 </body>
 </html>
