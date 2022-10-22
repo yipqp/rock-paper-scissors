@@ -17,22 +17,23 @@
         <h1 class="title">Rock Paper Scissors</h1>
     </div>
 
-    <div class="button-container container">
-        <button id="rock"><i class="fa-regular fa-hand-back-fist fa-2xl"></i></button>
-        <button id="paper"><i class="fa-regular fa-hand fa-2xl"></i></button>
-        <button id="scissors"><i class="fa-regular fa-hand-scissors fa-2xl"></i></button>
-    </div>
-
-    <div class="message-container container">
+    <div class="game-container container">
+        <div class="game-end-container container">
+            <button class="restart">Restart</button>
+            <div class="game-end message"><span>&#8203;</span></div>
+        </div>
+        <div class="button-container container">
+            <button id="rock" class="game-button"><i class="fa-regular fa-hand-back-fist fa-2xl"></i></button>
+            <button id="paper" class="game-button"><i class="fa-regular fa-hand fa-2xl"></i></button>
+            <button id="scissors" class="game-button"><i class="fa-regular fa-hand-scissors fa-2xl"></i></button>
+        </div>
         <div class="result-container container">
-            <div class="result message"></div>
+            <div class="result message"><span>&#8203;</span></div>
         </div>
         <div class="score-container container">
-            <div class="player-score message"></div>
-            <div class="computer-score message"></div>
+            <div class="player-score message">Your score: 0</div>
+            <div class="computer-score message">Computer score: 0</div>
         </div>
-        <div class="game-end message"></div>
     </div>
-    
 </body>
 </html>

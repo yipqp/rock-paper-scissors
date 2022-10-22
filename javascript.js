@@ -71,7 +71,9 @@ function resetGame() {
     computerScore = 0;
 }
 
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".game-button");
 buttons.forEach(button => {
     button.addEventListener("click", playRound);  
 });
+
+
