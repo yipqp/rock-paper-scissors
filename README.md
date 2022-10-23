@@ -1,5 +1,5 @@
 # rock-paper-scissors
-Simple rock, paper, scissors game
+Simple one-player rock paper scissors game
 
 Credits:
-button inspired by: https://uiverse.io/detail/cssbuttons-io/stale-rattlesnake-87;
+Button animation: https://uiverse.io/detail/cssbuttons-io/stale-rattlesnake-87;
