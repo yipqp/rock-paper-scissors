@@ -1,6 +1,16 @@
 let playerScore = 0;
 let computerScore = 0;
 
+const resultDiv = document.querySelector(".result");
+const playerScoreDiv = document.querySelector(".player-score");
+const computerScoreDiv = document.querySelector(".computer-score");
+const gameEndMessage = document.querySelector(".game-end");
+const restartButton = document.querySelector(".restart-button");
+const buttons = document.querySelectorAll(".game-button");
+
+addButtonListener();
+restartButton.addEventListener("click", restartGame);
+
 function getComputerChoice() {
     const randomNum = Math.floor((Math.random()*3)+1);
     if (randomNum === 1) {
@@ -19,10 +29,6 @@ function capitalizeFirstLetter(string) {
 function playRound(playerSelection, computerSelection) {
     playerSelection = this.id;
     computerSelection = getComputerChoice();
-
-    const resultDiv = document.querySelector(".result");
-    const playerScoreDiv = document.querySelector(".player-score");
-    const computerScoreDiv = document.querySelector(".computer-score");
 
     let winMsg = `You win! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}.`;
     let loseMsg = `You lost! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}.`;
@@ -50,7 +56,6 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function endGame() {
-    const gameEndMessage = document.querySelector(".game-end");
     let gameResult = "";
 
     buttons.forEach(button => {
@@ -64,16 +69,22 @@ function endGame() {
     }
 
     gameEndMessage.textContent = gameResult;
+    restartButton.style.display = "block";
 }
 
-function resetGame() {
+function restartGame() {
     playerScore = 0;
     computerScore = 0;
+    resultDiv.innerHTML = "<span>&#8203;</span>";
+    playerScoreDiv.textContent = `Your score: ${playerScore}`;
+    computerScoreDiv.textContent = `Computer score: ${computerScore}`;
+    gameEndMessage.innerHTML = "<span>&#8203;</span>";
+    restartButton.style.display = "none";
+    addButtonListener();
 }
 
-const buttons = document.querySelectorAll(".game-button");
-buttons.forEach(button => {
-    button.addEventListener("click", playRound);  
-});
-
-
+function addButtonListener() {
+    buttons.forEach(button => {
+        button.addEventListener("click", playRound);  
+    });
+}

@@ -12,7 +12,7 @@ body {
     display: flex;
 }
 
-button {
+.game-button {
     border-radius: 40%;
     border: none;
     height: 7em;
@@ -25,7 +25,7 @@ button {
  
 }
 
-button:hover {
+.game-button:hover {
     background-color: #ffd166;
     box-shadow: 0px 15px 20px #fabd62;
     color:#FFF;
@@ -33,7 +33,30 @@ button:hover {
 
 }
 
-button:active {
+.restart-button {
+    display:none;
+    font-size: 16px;
+    border-radius: 45px;
+    border: none;
+    height: 3em;
+    width: 8em;
+    color: #000;
+    background-color: #FFF;
+    cursor: pointer;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease 0s;
+}
+
+.restart-button:hover {
+    background-color:#06D6A0;
+    box-shadow: 0px 15px 20px #2ee59d66;
+    color: #FFF;
+    transform: translateY(-7px);
+
+}
+
+.game-button:active,
+.restart-button:active {
     transform: translateY(-1px);
 }
 
@@ -63,6 +86,7 @@ button:active {
 .result-container,
 .score-container {
     justify-content: center;
+    align-items: center;
 }
 
 .message {
@@ -70,11 +94,3 @@ button:active {
     padding: 1.2em;
     font-size: 1.2em;
 }
-/* 
-.player-score,
-.computer-score {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    align-self: center;
-} */
