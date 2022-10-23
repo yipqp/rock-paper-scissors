@@ -31,8 +31,8 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice();
 
     let winMsg = `You win! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}.`;
-    let loseMsg = `You lost! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}.`;
-    let tieMsg = `It's a tie! You both played ${playerSelection}.`;
+    let loseMsg = `You lose! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}.`;
+    let tieMsg = `You tied! You both played ${playerSelection}.`;
 
     if (playerSelection === computerSelection) {
         resultDiv.textContent = tieMsg;
@@ -63,9 +63,9 @@ function endGame() {
     });
 
     if (playerScore > computerScore) {
-        gameResult = ("You won the battle!");
+        gameResult = ("You won, GG.");
     } else {
-        gameResult = ("Better luck next time...");
+        gameResult = ("Do better next time...");
     }
 
     gameEndMessage.textContent = gameResult;
