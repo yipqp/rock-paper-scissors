@@ -70,7 +70,7 @@ body {
 }
 
 .game-container {
-    padding: 1.25em;
+    padding: 1.3em;
     flex-flow: column wrap;
     justify-content: center;
     background-color: #EBEBEB;
@@ -86,7 +86,7 @@ body {
     align-self: center;
     border: none;
     border-radius:45px;
-    width: 32em;
+    width: 35em;
     background-color: #26547C;
     color: #FFF;
     font-weight: bold;
@@ -102,7 +102,42 @@ body {
 }
 
 .message {
-    margin: 1.2em;
-    padding: 1.2em;
+    margin: 1.3em;
+    padding: 1.3em;
     font-size: 1.2em;
 }
+
+.footer {
+    background-color: #FCFCFC;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    
+}
+
+a {
+    color: black;
+    font-size: 1.2em;
+    position: relative;
+    text-decoration: none;
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    background-color: #18272F;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .2s ease-in-out;
+}
+
+a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
